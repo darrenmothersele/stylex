@@ -69,3 +69,5 @@ php -S localhost:8000
 ```
 
 Now, browse to `http://localhost:8000` to see the website.
+
+Read about how to use the rest of the features [http://www.darrenmothersele.com/blog/2015/03/20/stylex-prototype-style-guide-tool/](on my blog).
