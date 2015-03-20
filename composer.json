@@ -1,0 +1,29 @@
+{
+  "name": "darrenmothersele/stylex",
+  "type": "library",
+  "description": "Stylex prototyping and style guide tool",
+  "homepage": "http://www.darrenmothersele.com/projects/stylex/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Darren Mothersele",
+      "email": "darren@darrenmothersele.com",
+      "homepage": "http://www.darrenmothersele.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "Stylex" : "src"
+    }
+  },
+  "require": {
+    "php": ">5.4",
+    "silex/silex": "~1.2",
+    "twig/twig": "~1.18",
+    "michelf/php-markdown": "~1.5",
+    "symfony/yaml": "~2.6",
+    "symfony/twig-bridge": "~2.6",
+    "symfony/finder": "~2.6"
+  }
+}
