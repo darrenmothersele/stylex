@@ -39,29 +39,33 @@ a starter template `templates/index.html`.
 Create a file in the project root (same location as the generated `composer.json` file)
 called `index.php` with the following code:
 
-    <?php
-    require_once __DIR__ . '/vendor/autoload.php';
+```
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
 
-    $app = new Stylex\Application();
-    $app->run();
+$app = new Stylex\Application();
+$app->run();
+```
 
 Then create a `templates` folder and create the first page template, `templates/index.html` in this folder:
 
-{% raw %}
-    <html>
-      <head>
-        <title>Hello!</title>
-      </head>
-      <body>
-        {% block content %}
-          <h1>Hello, world!</h1>
-        {% endblock %}
-      </body>
-    </html>
-{% endraw %}
+```
+<html>
+  <head>
+    <title>Hello!</title>
+  </head>
+  <body>
+    {% block content %}
+      <h1>Hello, world!</h1>
+    {% endblock %}
+  </body>
+</html>
+```
 
 You can run the application with PHP's build in web server. Simply run the following command:
 
-    php -S localhost:8000
+```
+php -S localhost:8000
+```
 
 Now, browse to `http://localhost:8000` to see the website.
