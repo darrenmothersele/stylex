@@ -18,11 +18,18 @@ class Application extends \Silex\Application {
       'content' => 'content',
       'twig.options' => ['strict_variables' => FALSE],
     ];
+    if ($values['debug']) {
+      $this['debug'] = TRUE;
+      $values['twig.options']['debug'] = TRUE;
+    }
 
     $this->register(new \Silex\Provider\TwigServiceProvider(), array(
       'twig.path' => $values['templates'],
       'twig.options' => $values['twig.options'],
     ));    
+    if ($this['debug']) {
+      $this['twig']->addExtension(new \Twig_Extension_Debug());
+    }
     $yaml = new \Symfony\Component\Yaml\Parser();
 
     // Load all data files
@@ -44,7 +51,8 @@ class Application extends \Silex\Application {
         list(, $data, $body) = explode("---\n", $file->getContents());
         $data = $yaml->parse($data);
         $data['content'] = \Michelf\Markdown::defaultTransform($body);
-        $content[basename(dirname($file->getPathname()))][$file->getBasename('.md')] = $data;
+        $content[basename(dirname($file->getPathname()))][] = $data; 
+        $content[basename(dirname($file->getPathname()))][$file->getBasename('.md')] = &$data; 
       }
     }
     $this['twig']->addGlobal('content', $content);
