@@ -52,7 +52,7 @@ class Application extends \Silex\Application {
         $data = $yaml->parse($data);
         $data['content'] = \Michelf\Markdown::defaultTransform($body);
         $content[basename(dirname($file->getPathname()))][] = $data; 
-        $content[basename(dirname($file->getPathname()))][$file->getBasename('.md')] = &$data; 
+        $content[basename(dirname($file->getPathname()))][$file->getBasename('.md')] = $data; 
       }
     }
     $this['twig']->addGlobal('content', $content);
